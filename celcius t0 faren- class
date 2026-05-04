@@ -1,0 +1,17 @@
+#include <iostream>
+using namespace std;
+class temp{
+    float farenheit,celcius;
+    public:
+    float conversion(float celcius)
+    {
+        farenheit=(float)9/5*celcius+32;
+        return farenheit;
+    }
+};
+int main()
+{
+    temp t;
+    cout<<t.conversion(20)<<endl;
+    return 0;
+}
