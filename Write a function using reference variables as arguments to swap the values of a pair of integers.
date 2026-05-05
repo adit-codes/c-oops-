@@ -1,0 +1,19 @@
+#include<bits/stdc++.h>
+using namespace std;
+void swap(int &a,int &b)
+{
+    cout<<"BEFORE SWAPPING:"<<endl<<"a:"<<a<<" b:"<<b<<endl;
+    int temp;
+    temp=a;
+    a=b;
+    b=temp;
+    cout<<"AFTER SWAPPING:"<<endl<<"a:"<<a<<" b:"<<b<<endl;
+}
+int main()
+{
+    int x,y;
+    cout<<"ENTER INTEGERS:";
+    cin>>x>>y;
+    swap(x,y);
+    return 0;
+}
