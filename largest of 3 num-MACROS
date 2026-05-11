@@ -1,0 +1,12 @@
+#include <iostream>
+using namespace std;
+
+#define MAX_OF_THREE(a, b, c) ((a > b) ? ((a > c) ? a : c) : ((b > c) ? b : c))
+
+int main() {
+    int x = 10, y = 25, z = 15;
+    
+    cout << "The largest number is: " << MAX_OF_THREE(x, y, z) << endl;
+    
+    return 0;
+}
