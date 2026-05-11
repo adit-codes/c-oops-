@@ -1,0 +1,57 @@
+#include<iostream>
+#include<string>
+using namespace std;
+class bankacc{
+    private:
+    string name;
+    int acc_no;
+    string acc_type;
+    long double balance;
+    public:
+    //CONSTRUCTOR & ASSIGINING
+    bankacc(string n,
+    int ac,
+    string type,
+    long double b)
+    {
+        name=n;
+        acc_no=ac;
+        acc_type=type;
+        balance=b;
+    }
+    //DEPOSIT
+    void deposit()
+    {
+        long double amount;
+        cout<<"ENTER AMOUNT:";
+        cin>>amount;
+        this->balance+=amount;
+        cout<<"SUCCESSFUL!"<<endl<<"CURRENT BALANCE:"<<this->balance<<endl;
+    }
+    //WITHDRAW AFTER CHECKING BALANCE
+    void withdraw()
+    {
+        long double amount;
+        cout<<"BALANCE:"<<this->balance<<endl;
+        cout<<"ENTER WITHDRAWL AMOUNT:";
+        cin>>amount;
+        this->balance-=amount;
+        cout<<"SUCCESSFUL!"<<endl<<"CURRENT BALANCE:"<<this->balance<<endl;
+    }
+    void display()
+    {
+        cout<<"NAME:"<<this->name<<endl;
+        cout<<"BALANCE:"<<this->balance<<endl;
+    }
+};
+int main()
+{
+    bankacc FAHAD("FAHAD",1234,"SAVING",123456.90);
+    FAHAD.display();
+    cout<<endl<<"_________________"<<endl;
+    FAHAD.deposit();
+    cout<<endl<<"_________________"<<endl;
+    FAHAD.withdraw();
+    cout<<endl<<"_________________"<<endl;
+    return 0;
+}
