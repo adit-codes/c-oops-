@@ -1,0 +1,84 @@
+#include <iostream>
+using namespace std;
+class vector
+{
+    float *p;
+    int size;
+    public:
+    vector(int a)
+    {
+        size=a;
+        p=new float[size];
+    }
+    // MEMBER FUNCTIONS
+    void create();
+    void modify(int element_pos,int new_val);
+    void modify_delete(int element_pos);
+    void print(void);
+    void multiply(int s);
+    ~vector()
+    {
+        delete []p;
+    }
+};
+//create
+void vector::create()
+{
+    for(int i=0;i<size;i++)
+    {
+        cin>>p[i];
+    }
+    cout<<"SUCCESSFULLY CREATED"<<endl;
+    print();
+}
+//CHANGE ELEMENT
+void vector::modify(int element_pos,int new_val)
+{
+    p[element_pos]=new_val;
+    cout<<"SUCCESSFULLY MODIFIED"<<endl;
+    print();
+}
+//DELETE ELEMENT
+void vector::modify_delete(int element_pos)
+{
+    for(int i=0;i<size-1;i++)
+    {
+        p[i]=p[i+1];
+    }
+    size--;
+    cout<<"SUCCESSFULLY DELETED"<<endl;
+    print();
+}
+//PRINT ELEMENTS
+void vector::print(void)
+{
+    cout<<"(";
+    for(int i=0;i<size;i++)
+    {
+        cout<<p[i];
+        if(i!=size-1) cout<<",";
+    }
+    cout<<")"<<endl;
+}
+//MULTIPLY BY SCALAR
+void vector::multiply(int s)
+{
+    for(int i=0;i<size;i++)
+    {
+        p[i]*=s;
+    }
+    print();
+    
+}
+
+
+int main() {
+    vector v(5);
+    v.create();
+    v.modify(3,100);
+    v.modify_delete(4);
+    v.multiply(10);
+    
+  
+    return 0;
+}
