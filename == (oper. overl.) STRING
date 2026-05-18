@@ -1,0 +1,29 @@
+using namespace std;
+class STRING{
+    char str[100];
+    public:
+    STRING();
+    STRING(char x[100])
+    {
+        strcpy(str, x);
+    }
+    bool operator ==(STRING str1);
+    void display();
+};
+bool STRING::operator==(STRING str1)
+{
+    if(!strcmp(str,str1.str)) return true;
+    else return false;
+}
+void STRING::display()
+{
+    cout<<str<<endl;
+}
+int main()
+{   char S1[]="HELLO",S2[]="HELLO";
+    STRING str1(S1),str2(S2);
+    if(str1==str2)cout<<"SAME"<<endl;
+    else cout<<"NOT SAME"<<endl;
+    return 0;
+    
+}
