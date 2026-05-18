@@ -1,0 +1,51 @@
+#include <iostream>
+#include<cmath>
+using namespace std;
+class polar{
+    float radius;
+    float angle;
+    float x;
+    float y;
+    public:
+    polar(){};
+    polar(float r1,float a1);
+    polar operator+(polar p1);
+    void display();
+};
+polar::polar(float r1,float a1)
+{
+    radius=r1;
+    angle=a1;
+    x=r1*cos(a1);
+    y=r1*sin(a1);
+}
+polar polar::operator+(polar p1)
+{
+    polar temp;
+    temp.x=x+p1.x;
+    temp.y=x+p1.x;
+    temp.radius=sqrt(pow(temp.x,2)+pow(temp.y,2));
+    temp.angle=atan2(temp.y,temp.x);
+    return temp;
+}
+void polar::display()
+{
+    cout<<"RADIUS:"<<radius<<" ANGLE:"<<angle<<endl;
+}
+int main()
+{
+    polar p1,p2,p3;
+    float r,a;
+    cout<<" Enter radius and angle : ";
+    cin>>r>>a;
+    p1=polar(r,a);
+    p2=polar(8,45);
+    p3=p1+p2;
+    cout<<" p1 : \n";
+    p1.display();
+    cout<<" p2 : \n ";
+    p2.display();
+    cout<<" p3 : \n ";
+    p3.display();
+    return 0;
+}
