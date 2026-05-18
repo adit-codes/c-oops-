@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+class shape
+{
+    protected:
+    float width,height;
+    public:
+    void setWidth(float w){width=w;}
+    void setHeight(float h){height=h;}
+};
+class rectangle:public shape
+{
+    public:
+    float getArea()
+    {
+        float area;
+        area=(width*height);
+        return area ;
+    }
+};
+int main()
+{
+    rectangle r1;
+    r1.setWidth(10.0);
+    r1.setHeight(10.0);
+    cout<<"AREA:"<<r1.getArea()<<endl;
+    return 0;
+}
