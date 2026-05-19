@@ -1,0 +1,60 @@
+//HEIRCHEAL INHERITANCE
+#include <iostream>
+#include<cmath>
+using namespace std;
+class shape{
+    protected:
+    float length,breadth,radius;
+};
+class rectangle:public shape
+{
+    public:
+    void getRectangleDetails()
+    {
+        cout<<"ENTER LENGTH:";cin>>length;
+        cout<<"ENTER BREADTH:";cin>>breadth;
+    }
+    float rectangle_area()
+    {
+        return (length*breadth);
+    }
+};
+class circle:public shape
+{
+    public:
+    void getCircleDetails()
+    {
+        cout<<"ENTER RADIUS:";cin>>radius;
+    }
+    float circle_area()
+    {
+        return(pow(radius,2)*3.14);
+    }
+};
+class square:public shape
+{
+    public:
+    void getSquareDetails()
+    {
+        cout<<"ENTER SIDE:";cin>>length;
+    }
+    float square_area()
+    {
+        return(pow(length,2));
+    }
+    
+};
+
+int main() {
+    square S;
+    rectangle R;
+    circle C;
+    R.getRectangleDetails();
+    C.getCircleDetails();
+    S.getSquareDetails();
+    cout<<"RECT AREA:"<<R.rectangle_area()<<endl;
+    cout<<"CIRCLE AREA:"<<C.circle_area()<<endl;
+    cout<<"SQUARE AREA:"<<S.square_area()<<endl;
+    
+    return 0;
+}
