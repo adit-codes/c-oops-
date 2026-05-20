@@ -1,0 +1,40 @@
+#include<iostream>
+using namespace std;
+
+class A
+{
+public:
+    void display()
+    {
+        cout << "\nA::display()";
+    }
+};
+
+class B : public A
+{
+public:
+    void show()
+    {
+        cout << "\nB::show()";
+    }
+};
+
+class C : public A
+{
+public:
+    void output()
+    {
+        cout << "\nC::output()";
+    }
+};
+
+class D : public B, public C
+{
+};
+
+int main()
+{
+    D d;
+    d.display(); // This line causes the compiler error due to ambiguity
+    return 0;
+}
