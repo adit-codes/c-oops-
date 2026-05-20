@@ -1,0 +1,43 @@
+#include <iostream>
+#include<fstream>
+#include<iomanip>
+using namespace std;
+class student{
+    int roll;
+    string name;
+    string add;
+    public:
+    void get_data()
+    {
+        cout<<"ENTER NAME";cin>>name;
+        cout<<"ENTER ROLL";cin>>roll;
+        cout<<"ENTER ADDRESS";cin>>add;
+    }
+    void show_data()
+    {
+        cout<<setw(10)<<roll<<setiosflags(ios::left)<<setw(10)<<name<<setiosflags(ios::left)<<setw(10)<<add<<endl;
+    }
+};
+
+int main()
+{
+    int n;
+    cout<<"ENTER NUMBER OF ENTRIES:";cin>>n;
+    fstream file;
+    file.open("student.pdf",ios::in|ios::out|ios::binary);
+    student s[n];
+    for(int i=0;i<n;i++)
+    {
+        s[i].get_data();
+        file.write((char*)&s[i],sizeof(s[i]));
+    }
+    file.seekg(0);
+    cout<<setiosflags(ios::left)<<setw(10)<<"roll"<<setw(10)<<"name"<<setw(10)<<"add"<<endl;
+    for(int i=0;i<n;i++)
+    {
+        file.read((char*)&s[i],sizeof(s[i]));
+        s[i].show_data();
+    }
+    file.close();
+    return 0;
+}
